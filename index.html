@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Premium Product Collection</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page">
+
+    <!-- A. Header -->
+    <header class="site-header">
+      <h1>Discover Our Premium Collection</h1>
+      <p class="subtitle">Explore thoughtfully selected products and add your favorites to the shopping cart.</p>
+    </header>
+
+    <main class="layout">
+
+      <!-- B. Product catalog -->
+      <section class="catalog" aria-labelledby="catalog-title">
+        <div class="section-head">
+          <h2 id="catalog-title">Our Products</h2>
+
+          <!-- E. Dynamic product section -->
+          <div class="add-new">
+            <button id="add-new-btn" class="btn btn-secondary" type="button">Add New Product</button>
+            <p id="add-new-message" class="message" role="status" aria-live="polite"></p>
+          </div>
+        </div>
+
+        <!-- Product cards are rendered here by script.js -->
+        <div id="product-grid" class="product-grid"></div>
+      </section>
+
+      <aside class="sidebar">
+
+        <!-- C. Selected product -->
+        <section class="panel" aria-labelledby="selected-title">
+          <h2 id="selected-title">Selected Product</h2>
+          <div id="selected-info" class="selected-info">
+            <p class="placeholder">Select a product to see its details.</p>
+          </div>
+          <button id="add-to-cart-btn" class="btn btn-primary" type="button">Add to Cart</button>
+          <p id="cart-message" class="message" role="status" aria-live="polite"></p>
+        </section>
+
+        <!-- D. Shopping cart summary -->
+        <section class="panel" aria-labelledby="cart-title">
+          <h2 id="cart-title">Shopping Cart</h2>
+          <p id="cart-status" class="cart-status">Your cart is empty.</p>
+          <ul id="cart-list" class="cart-list"></ul>
+          <dl class="totals">
+            <div>
+              <dt>Total Items</dt>
+              <dd id="total-items">0</dd>
+            </div>
+            <div>
+              <dt>Total Price</dt>
+              <dd id="total-price">$0.00</dd>
+            </div>
+          </dl>
+        </section>
+
+      </aside>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
