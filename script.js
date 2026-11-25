@@ -62,6 +62,7 @@ const cartStatus = document.querySelector("#cart-status");
 const cartList = document.querySelector("#cart-list");
 const totalItemsEl = document.querySelector("#total-items");
 const totalPriceEl = document.querySelector("#total-price");
+const toastContainer = document.querySelector("#toast-container");
 
 // ---------- 4. HELPER FUNCTIONS ----------
 
@@ -77,6 +78,20 @@ function showMessage(element, text, type) {
   if (type) {
     element.classList.add(type);
   }
+}
+
+function showToast(text, type) {
+  const toast = document.createElement("div");
+  toast.className = `toast ${type || ""}`.trim();
+  toast.textContent = text;
+  toastContainer.appendChild(toast);
+
+  window.setTimeout(function () {
+    toast.classList.add("toast-leaving");
+    window.setTimeout(function () {
+      toast.remove();
+    }, 200);
+  }, 3000);
 }
 
 // Inline SVG used if an image fails to load
@@ -209,6 +224,7 @@ function addToCart() {
 
   updateCart();
   showMessage(cartMessage, `${selectedProduct.name} was added to your cart.`, "success");
+  showToast(`${selectedProduct.name} was added to your cart successfully!`, "success");
 }
 
 // Calculate totals and refresh the cart display
